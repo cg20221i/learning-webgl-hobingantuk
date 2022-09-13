@@ -69,6 +69,6 @@ function main() {
 
   //gl.Triangle_Fan draw a fan
   //TRIANGLE_STRIP  draw triangle loop
-  //line_stirp
+  //line_strip
   //line_loop
 }
