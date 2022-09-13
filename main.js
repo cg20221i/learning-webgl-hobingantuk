@@ -6,9 +6,10 @@ function main() {
    * A(0.5,0.5)
    * B(0.0,0.0)
    * C(-0.5,0.5)
+   * D(0.0,1.0)
    */
 
-  var vertices = [0.5, 0.5, 0.0, 0.0, -0.5, 0.5];
+  var vertices = [0.5, 0.5, 0.0, 0.0, -0.5, 0.5, 0.0, 1.0];
 
   //Create a Linked-list for storing the vertices data in gpu realm
   var buffer = gl.createBuffer();
@@ -19,7 +20,7 @@ function main() {
   var vertexShaderCode = `
   attribute vec2 aPosition;
   void main () {
-      gl_PointSize = 20.0;
+      gl_PointSize = 15.0;
       gl_Position = vec4(aPosition,0.0,1.0);
       //gl_position is the final destination for storing
       //positional data for the rendered vertex
@@ -63,6 +64,11 @@ function main() {
   gl.clearColor(1.0, 0.75, 0.79, 1.0); // RGB and Alpha
   gl.clear(gl.COLOR_BUFFER_BIT);
 
-  gl.drawArrays(gl.POINT, 0, 3);
+  gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
   //   gl.drawElements()
+
+  //gl.Triangle_Fan draw a fan
+  //TRIANGLE_STRIP  draw triangle loop
+  //line_stirp
+  //line_loop
 }
