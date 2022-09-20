@@ -68,17 +68,15 @@ function main() {
   gl.enableVertexAttribArray(aPosition);
 
   function render() {
-    setTimeout(function () {
-      gl.clearColor(1.0, 0.75, 0.79, 1.0); // RGB and Alpha
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      theta += 0.01;
-      gl.uniform1f(uTheta, theta);
-      gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
-      render();
-    }, 1000 / 10);
+    gl.clearColor(1.0, 0.75, 0.79, 1.0); // RGB and Alpha
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    theta += 0.01;
+    gl.uniform1f(uTheta, theta);
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+    requestAnimationFrame(render);
   }
 
-  render();
+  requestAnimationFrame(render);
   //   gl.drawElements()
 
   //gl.Triangle_Fan draw a fan
